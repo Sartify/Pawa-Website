@@ -126,7 +126,7 @@ const ActiveLinkStyle = {
     marginRight:'1em'
     
 }
-const AuthLinkStyle = {
+export const AuthLinkStyle = {
     display:'block',
     fontFamily:'Avenir-Light',
     fontSize:'17px',

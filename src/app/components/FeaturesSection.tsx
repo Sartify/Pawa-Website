@@ -1,7 +1,7 @@
 
 const FeaturesSection = () => {
   return (
-    <div className="flex w-full h-[500px]  bg-white  justify-center items-center">
+    <div className="flex w-full h-[500px]    justify-center items-center">
          <div className="absolute z-30 left-0   w-[800px] h-[80px]  top-[763px] bg-[#2F333E]"
             style={{
                 transform: 'skew(-35deg, 0deg)',
@@ -61,11 +61,9 @@ const FeaturesSection = () => {
             </div>
             <div className=" z-10 flex-col w-full bg-white pt-10 ">
                 <img src="/assets/bee.png" alt="" />
-
             </div>
             {/* curved div */}
            
-
         </div>
 
 
