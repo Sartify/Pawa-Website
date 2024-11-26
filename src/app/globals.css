@@ -21,6 +21,7 @@ body {
  
   /* color: var(--foreground); */
   font-family: 'Avenir-Light' Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .content-padding{
