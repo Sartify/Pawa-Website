@@ -27,3 +27,41 @@ body {
   padding-left: 20rem;
   padding-right: 20rem;
 }
+
+.avenir{
+  font-family: 'Avenir-Light';
+}
+
+
+.typewriter {
+  font-size: 20px;
+  font-family: "Avenir-Light";
+  white-space: nowrap;
+  color: #353535;
+  overflow: hidden;
+  border-right: 2px solid #4b4b4b; /* Cursor effect */
+  animation: typing 6s steps(20, end) infinite, blink 0.5s step-end infinite;
+  width: 0;
+  
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
