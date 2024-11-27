@@ -65,9 +65,9 @@ function FooterSection() {
     </div>
     <div className=" flex w-full  bg-[#2F333E]  justify-center items-start  "> 
     <div 
-  className="flex h-[71px] w-[1366px]  bg-[url('/assets/footer-path.png')] bg-cover bg-center items-center justify-between pr-20 pl-20">
+        className="flex h-[71px] w-[1366px]  bg-[url('/assets/footer-path.png')] bg-cover bg-center items-center justify-between pr-20 pl-20">
     <div style={{color:'#0F3859', fontFamily:'Avenir-Medium'}}>
-    <p>Designed By  All Rights reserved</p>
+    <p>Designed By Aliko All Rights reserved</p>
     </div>
     <div style={{color:'#0F3859', fontFamily:'Avenir-Medium'}}>
     <p>Website User Terms and Conditions</p>
