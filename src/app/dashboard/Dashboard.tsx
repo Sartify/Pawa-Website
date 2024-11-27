@@ -108,8 +108,8 @@ const Dashboard = () => {
 
 
         {/* center content */}
-            <div className="flex w-full bg-[#2F2D2D]">
-                <div className="flex w-full justify-between  p-8">
+            <div className="flex flex-col items-center  w-full bg-[#2F2D2D]">
+                <div className="flex  w-full   p-8">
                   
                     <div className="flex w-full  " >
                             <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
@@ -134,6 +134,28 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+                <div className="flex justify-center items-center">
+                    <div><img src="assets/buddy.png" height={'130px'} width={'147'} alt="" /></div>
+                </div>
+                <div className="flex justify-center items-center my-10">
+                    <p  style={{fontSize:'25px',fontFamily:'Chillax-Bold', color:'white'}}>How can I help you today?</p>
+                </div>
+
+
+                {/* section */}
+                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
+                            <p className="mb-2" style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Make a content strategy</p>
+                            <p  style={{color:'white', fontSize:'15px'}}>For a newsletter featuring local weekend events</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
+                            <p className="mb-2" style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Help me study</p>
+                            <p  style={{color:'white', fontSize:'15px'}}>Vocabulary for a college entrance exam</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
+                            <p style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Give mw ideas</p>
+                            <p  style={{color:'white', fontSize:'15px'}}>For my social media with trend</p>
+                    </div>
+                {/* section */}
 
             </div>
         {/* center content */}
