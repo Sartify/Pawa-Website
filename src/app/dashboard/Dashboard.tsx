@@ -157,6 +157,30 @@ const Dashboard = () => {
                     </div>
                 {/* section */}
 
+                <div className="flex flex-col  w-[721px] mt-20">
+                        <div className="flex flex-row gap-2 ">
+                                <div style={{padding:'4px 8px',backgroundColor:'#FFA2002C',fontSize:'11px',border:'1px solid #DC8F0A', borderRadius:'3px', color:'#ABAAAB'}}>
+                                    <p>Image Generator</p>
+                                </div>
+                                <div style={{padding:'4px 8px',backgroundColor:'#FFA2002C',fontSize:'11px',border:'1px solid #DC8F0A', borderRadius:'3px', color:'#ABAAAB'}}>
+                                    <p>Loading......</p>
+                                </div>
+                        </div>
+                        <div className="p-1 mt-2" style={{border:' 0.8px solid #F7F7F7', borderRadius:'7px'}}>
+                            <div className="flex flex-row justify-between bg-[#50504F]   py-3 px-4 " style={{borderRadius:'7px'}}>
+                                <div className="flex flex row gap-2 items-center ">
+                                    <div><img height={'24px'} width={'24px'} src="/assets/image-icon.png" alt="" /></div>
+                                    <input  style={{background:'none',color:'white'}} type="text" placeholder="Ask me anything" />
+                                </div>
+                                <button className="flex justify-center items-center h-[32px] w-[32px] rounded-full " style={{backgroundColor:'#FFA200 '}}>
+                                        <img width={'24px'} height={'24px'} src="/assets/microphone-icon.png" alt="" />
+                                </button>
+                                
+                            </div>
+                        </div>
+                        <p className="text-[#F7F7F7] text-center text-[12px] mt-10" style={{opacity:'0.8'}}>PAWA can make mistake. Consider checking important information. Read our <span className=" underline text-[#D98C07]">Privacy Policy</span></p>
+                </div>
+
             </div>
         {/* center content */}
 
