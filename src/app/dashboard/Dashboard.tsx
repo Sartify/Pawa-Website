@@ -1,108 +1,200 @@
+"use client"
+import { useRef } from "react";
+import DashMenuBottom from "./components/DashMenuBottom";
+import Image from "next/image";
+
+interface HistoryChatsProps {
+    chats: { title: string}[];
+  }
+  
+
+  const chatData = [
+    { title: "Sleep Management Tips"},
+    { title: "Healthy Eating Habits" },
+  ];
+
+  const HistoryChats: React.FC<HistoryChatsProps> = ({ chats }) => {
+    return (
+      <div className="mt-10">
+        <p
+          style={{
+            color: "#FFFFFF",
+            fontFamily: "Avenir-Medium",
+            fontSize: "15px",
+            opacity: "0.7",
+          }}
+        >
+          Yesterday
+        </p>
+        {chats.map((chat, index) => (
+          <div key={index} className="flex ml-2 mt-4">
+            <img
+              src={'/assets/message-logo.png'}
+              height="22px"
+              width="22px"
+              alt={`${chat.title} icon`}
+            />
+            <p
+              className="ml-3"
+              style={{
+                color: "#FFFFFF",
+                fontFamily: "Avenir-Light",
+                fontSize: "15px",
+                opacity: "0.7",
+              }}
+            >
+              {chat.title}
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const NewChatButton = () => {
+    return (
+      <div
+        className="mt-6 border border-gray-500 rounded-md p-1"
+      >
+        <button
+          className="p-2 bg-[#2F2D2D] w-[209px] rounded opacity-70 hover:opacity-100 transition duration-300 flex justify-between items-center"
+          aria-label="Start a new chat"
+        >
+          <p className="text-white">New Chat</p>
+          <Image
+            width={22}
+            height={22}
+            src="/assets/new-chat-icon.png"
+            alt="New Chat Icon"
+          />
+        </button>
+      </div>
+    );
+  };
+
+
+  interface ContentBoxProps {
+    title: string;
+    description: string;
+  }
+  
+  const ContentBox: React.FC<ContentBoxProps> = ({ title, description }) => {
+    return (
+      <div
+        className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29] py-4 mb-2"
+        style={{
+          opacity: "0.7",
+          borderRadius: "5px",
+        }}
+      >
+        <p
+          className="mb-2"
+          style={{
+            color: "white",
+            fontFamily: "Avenir-Heavy",
+            fontSize: "15px",
+          }}
+        >
+          {title}
+        </p>
+        <p
+          style={{
+            color: "white",
+            fontSize: "15px",
+          }}
+        >
+          {description}
+        </p>
+      </div>
+    );
+  };
+  
+
+  const AskInput = () => {
+    
+    const inputRef = useRef<HTMLInputElement>(null); // Create a ref for the input element
+
+    const handleContainerClick = () => {
+      console.log("Container clicked!");
+      if (inputRef.current) {
+        inputRef.current.focus(); // Focus the input when the container is clicked
+      }
+    };
+  
+    return (
+      <div
+        className="p-1 mt-2"
+        style={{
+          border: "0.8px solid #F7F7F7",
+          borderRadius: "7px",
+        }}
+      >
+        <div
+          className="flex flex-row justify-between bg-[#50504F] py-3 px-4 cursor-pointer"
+          style={{
+            borderRadius: "7px",
+          }}
+          onClick={handleContainerClick} // Trigger on clicking anywhere
+        >
+          {/* Input Section */}
+          <div className="flex flex-row gap-2 items-center">
+            <div>
+              <img
+                height={24}
+                width={24}
+                src="/assets/image-icon.png"
+                alt="Input Icon"
+              />
+            </div>
+            <input
+            ref={inputRef} 
+              style={{
+                background: "none",
+                color: "white",
+                outline: "none",
+                border: "none",
+                flex: "1",
+              }}
+              type="text"
+              placeholder="Ask me anything"
+              onClick={(e) => e.stopPropagation()} // Prevent input click from triggering the container click
+            />
+          </div>
+  
+          {/* Microphone Button */}
+          <button
+            className="flex justify-center items-center h-[32px] w-[32px] rounded-full"
+            style={{
+              backgroundColor: "#FFA200",
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent button click from triggering the container click
+              console.log("Microphone button clicked!");
+            }}
+          >
+            <img
+              width={24}
+              height={24}
+              src="/assets/microphone-icon.png"
+              alt="Microphone Icon"
+            />
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+
 const Dashboard = () => {
   return (
 
     <div className="flex w-full bg-red-500 " style={{height:'100vh'}}>
         {/* Navigation */}
             <div className="flex-col w-[296px] bg-[#50504F] p-8 justify"  >
-             
-
-                    <div>
-                        <img src="/assets/pawa-dash-logo.png" width={'126px'} height={'33px'} alt="" />
-                    </div>
-
-                    <div className="mt-6"  style={{border:'1px solid #707070',padding:'3px',borderRadius:'4px'}}>
-                        <button  className="p-2 bg-[#2F2D2D] w-[209px] " style={{borderRadius:'4px', opacity:'0.7'}}>
-                            <div className="flex justify-between w-full ">
-                                <p className="text-white">New Chat</p>
-                                <div><img width={'22px'} height={'22px'} src="assets/new-chat-icon.png" alt="" /></div>
-                            </div>
-                        </button>
-                    </div>
-
-                    {/* History Chats */}
-
-                        <div className="mt-10">
-                            <p style={{color:'#FFFFFF',fontFamily:'Avenir-Medium',fontSize:'15px',opacity:'0.7'}} >Today</p>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                        </div>
-
-                    {/* History Chats */}
-                    {/* History Chats */}
-
-                        <div className="mt-10">
-                            <p style={{color:'#FFFFFF',fontFamily:'Avenir-Medium',fontSize:'15px',opacity:'0.7'}} >Yesterday</p>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                        </div>
-
-                    {/* History Chats */}
-                      {/* History Chats */}
-
-                      <div className="mt-10">
-                            <p style={{color:'#FFFFFF',fontFamily:'Avenir-Medium',fontSize:'15px',opacity:'0.7'}} >Yesterday</p>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                        </div>
-
-                    {/* History Chats */}
-                      {/* History Chats */}
-
-                      <div className="mt-10">
-                            <p style={{color:'#FFFFFF',fontFamily:'Avenir-Medium',fontSize:'15px',opacity:'0.7'}} >Yesterday</p>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                            <div className="flex  ml-2  mt-4">
-                                <img src="/assets/message-logo.png" height={'22px'} width={'22px'} alt="" />
-                                <p className="ml-3" style={{color:'#FFFFFF',fontFamily:'Avenir-Light',fontSize:'15px',opacity:'0.7'}}>Sleep Management Tips</p>
-                            </div>
-                        </div>
-
-                    {/* History Chats */}
-
-                    {/* bottom content */}
-                         <div className="absolute bottom-8">
-                            <div>
-                                <button style={{border:'1px solid white', padding:'12px' , borderRadius:'4px'}}>
-                                    <div className="flex">
-                                        <img height={'24px'} width={'24px'} src="/assets/light-icon.png" alt="" />
-                                        <p style={{color:'#E7E7E7', paddingLeft:'4px'}}>Upgrade to PAWA plus</p>
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div className="flex  w-full justify-between mt-10 ">
-                                    <div className="flex items-center justify-center">
-                                        <img width={'27px'} height={'27px'} src="/assets/moon-icon.png" alt="" />
-                                        <p style={{color:'#D3D2D2',fontFamily:'Avenir-Heavy', fontSize:'16px', marginLeft:'8px'}}>Dark Mode</p>
-                                    </div>
-                                    <div>
-                                    <div className="w-[54px] h-[24px] rounded-full bg-[#FFFFFF] flex items-center justify-center relative cursor-pointer">
-                                 
-                                    <div className="flex items-center justify-center absolute top-[2px] left-[32px] h-[20px] w-[20px]  bg-[#DC8F0A] rounded-full">
-                                        
-                                    </div>
-                                </div>
-                                    </div>
-                            </div>
-                        </div>
-                    {/* bottom content */}
+                    <Image src="/assets/pawa-dash-logo.png" width={126} height={33} alt="" />
+                    <NewChatButton/>
+                    <HistoryChats chats={chatData} />
+                    <DashMenuBottom/>
             </div>
         {/* Navigation */}
 
@@ -143,18 +235,19 @@ const Dashboard = () => {
 
 
                 {/* section */}
-                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
-                            <p className="mb-2" style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Make a content strategy</p>
-                            <p  style={{color:'white', fontSize:'15px'}}>For a newsletter featuring local weekend events</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
-                            <p className="mb-2" style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Help me study</p>
-                            <p  style={{color:'white', fontSize:'15px'}}>Vocabulary for a college entrance exam</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center w-[722px] bg-[#FFFFFF29]  py-4 mb-2" style={{opacity:'0.7', borderRadius:'5px'}}>
-                            <p style={{color:'white', fontFamily:'Avenir-Heavy', fontSize:'15px'}}>Give mw ideas</p>
-                            <p  style={{color:'white', fontSize:'15px'}}>For my social media with trend</p>
-                    </div>
+                        <ContentBox
+                            title="Make a content strategy"
+                            description="For a newsletter featuring local weekend events"
+                        />
+                   
+                        <ContentBox
+                            title="Make a content strategy"
+                            description="For a newsletter featuring local weekend events"
+                        />
+                        <ContentBox
+                            title="Plan a social media campaign"
+                            description="For promoting new product launches"
+                        />
                 {/* section */}
 
                 <div className="flex flex-col  w-[721px] mt-20">
@@ -166,18 +259,7 @@ const Dashboard = () => {
                                     <p>Loading......</p>
                                 </div>
                         </div>
-                        <div className="p-1 mt-2" style={{border:' 0.8px solid #F7F7F7', borderRadius:'7px'}}>
-                            <div className="flex flex-row justify-between bg-[#50504F]   py-3 px-4 " style={{borderRadius:'7px'}}>
-                                <div className="flex flex row gap-2 items-center ">
-                                    <div><img height={'24px'} width={'24px'} src="/assets/image-icon.png" alt="" /></div>
-                                    <input  style={{background:'none',color:'white'}} type="text" placeholder="Ask me anything" />
-                                </div>
-                                <button className="flex justify-center items-center h-[32px] w-[32px] rounded-full " style={{backgroundColor:'#FFA200 '}}>
-                                        <img width={'24px'} height={'24px'} src="/assets/microphone-icon.png" alt="" />
-                                </button>
-                                
-                            </div>
-                        </div>
+                            <AskInput/>
                         <p className="text-[#F7F7F7] text-center text-[12px] mt-10" style={{opacity:'0.8'}}>PAWA can make mistake. Consider checking important information. Read our <span className=" underline text-[#D98C07]">Privacy Policy</span></p>
                 </div>
 
