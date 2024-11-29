@@ -1,130 +1,138 @@
 "use client"
-import Image from "next/image"
 import DevNavigation from "../components/DevNavigation"
+import InfoFooter from "../components/InfoFooter"
+import { ActionButton } from "../apiendpoint/ApiEndpoint"
+import { CSSProperties, ReactNode } from "react";
 
-interface ContentDivProps {
-    contentHead:String,
-    content:String
-  }
 
-  const ContentDiv : React.FC<ContentDivProps> = ({ contentHead,content})=>{
-    return(
-        <div className="mb-3 flex flex-row  items-center justify-between mb-2 p-1 " style={{border:'1px solid #FFFFFF',opacity:'1 ', borderRadius:'5px'}}>
-            <div className=" flex flex-row  items-center justify-between px-10  bg-[#FFFFFF29]">
-                <div className="flex  flex-col justify-center  w-[722px]   py-5  " style={{opacity:'0.9 ', borderRadius:'5px'}}>
-                        <p className="mb-2" style={{color:'white', fontFamily:'Avenir-Medium', fontSize:'15px'}}>{contentHead}</p>
-                        <p  style={{color:'white', fontSize:'14px', fontFamily:'Avenir-Oblique', opacity:'0.7'}}>{content}</p>
-                </div>
-                <Image src={'/assets/right-arrow.svg'} width={25} height={17} alt="" />
-            </div>
-    </div>
-    )
+interface CardProps {
+  children: ReactNode;
+  style?: CSSProperties;
+  className?: string;
+}
 
-  }
-
-  interface ActionButtonProps {
-    buttonText: string; // Text for the button (e.g., "Share")
-    buttonIcon: string; // Path to the icon for the button
-    avatarText: string; // Text inside the circular avatar (e.g., "ND")
-  }
-  
-  const ActionButton: React.FC<ActionButtonProps> = ({
-    buttonText,
-    buttonIcon,
-    avatarText,
-  }) => {
-    return (
-      <div className="flex">
-        {/* Share Button */}
-        <div>
-          <button
-            className="w-[78px]"
-            style={{
-              border: "1px solid #DDDDDD",
-              backgroundColor: "#FFFFFF29",
-              padding: "4px 10px",
-              borderRadius: "5px",
-            }}
-          >
-            <div className="flex justify-between items-center">
-              <p style={{ color: "#E4E4E4", fontSize: "13px" }}>{buttonText}</p>
-              <img src={buttonIcon} width="10px" alt="Button Icon" />
-            </div>
-          </button>
-        </div>
-  
-        {/* Circular Avatar */}
-        <div
-          className="flex justify-center items-center relative rounded-full w-[50px] h-[50px] top-[-10px] bg-[#FFFFFF29] ml-6"
+const Card: React.FC<CardProps> = ({ children, style, className }) => {
+  return (
+      <div
+          className={`flex flex-col bg-[#3E444D] p-10 ${className || ""}`}
           style={{
-            border: "1px solid white",
+              borderRadius: "12px",
+              border: "1px solid #7D7B7B",
+              ...style,
           }}
-        >
-          <p style={{ fontSize: "22px", color: "white" }}>{avatarText}</p>
-        </div>
+      >
+          {children}
       </div>
-    );
-  };
+  );
+};
+
+const DocumentCard: React.FC = () => {
+  return (
+      <Card className="h-[386px] w-[298px]">
+          <p
+              className="mb-6"
+              style={{
+                  color: "#EBEBEB",
+                  fontFamily: "Avenir-Light",
+                  fontSize: "14px",
+              }}
+          >
+              DECEMBER 6, 2024 | PDF
+          </p>
+          <div className="mb-6">
+              <img
+                  className="grayscale"
+                  src="/assets/document.png"
+                  width="62"
+                  height="82"
+                  alt="Document"
+              />
+          </div>
+          <p
+              className="mb-2"
+              style={{
+                  color: "#EBEBEB",
+                  fontFamily: "Avenir-Black",
+                  fontSize: "20px",
+              }}
+          >
+              Getting Started
+              <br /> Guide
+          </p>
+          <p
+              className="mb-6"
+              style={{
+                  color: "#EBEBEB",
+                  fontFamily: "Avenir-Light",
+                  fontSize: "14px",
+              }}
+          >
+              Step-by-step guide to get started.
+          </p>
+          <button
+              className="self-center p-3 w-[200px]"
+              style={{
+                  border: "1px solid #DC8F0A",
+                  borderRadius: "4px",
+                  backgroundColor: "#FFA200",
+              }}
+          >
+              Download a PDF
+          </button>
+      </Card>
+  );
+};
 
 
 
 const Documentation = () => {
 
-   
-    return (
-  
-      <div className="flex w-full bg-red-500 " style={{height:'100vh'}}>
-          {/* Navigation */}
-                  <DevNavigation />
-          {/* Navigation */}
-  
-  
-          {/* center content */}
-              <div className="flex flex-col items-center  w-full bg-[#2F2D2D]">
-                  <div className="flex  w-full   p-8">
-                    
-                      <div className="flex w-full  " >
-                              <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-                                  <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
-                              </button>
-                              <p style={{ color: '#FCFEFB', opacity:'0.8' }}>Back to Website </p>
-                          </div>
+
+
+  return (
+
+
+    <div className="flex w-full bg-red-500 " style={{ height: '100vh' }}>
+      {/* Navigation */}
+      <DevNavigation />
+      {/* Navigation */}
+
+
+      {/* center content */}
+      {/* profile */}
+      <div className="flex flex-col items-center  w-full bg-[#2F2D2D] pb-4">
+        {/* profile */}
+        <div className="flex  w-full  p-8">
+          <div className="flex w-full  " >
+            <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
+              <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
+            </button>
+            <p style={{ color: '#FCFEFB', opacity: '0.8' }}>Back to Website </p>
+          </div>
+
+          <ActionButton
+            buttonText="Share"
+            buttonIcon="/assets/share-icon.png"
+            avatarText="ND"
+          />
+        </div>
+        {/* profile */}
+        {/* mid-centerd */}
+        <div className=" h-[100vh]  w-[864px] flex flex-row justify-between  gap-2 items-center pb-3  ">
                   
-                        <ActionButton
-                            buttonText="Share"
-                            buttonIcon="/assets/share-icon.png"
-                            avatarText="ND"
-                        />
-                  </div>
-
-                  <div className="flex justify-center items-center">
-                      <div><Image src="/assets/pawa-logo-svg.svg" height={130} width={147} alt="" className="grayscale" /></div>
-                  </div>
-                  <div className="flex justify-center items-center my-10">
-                      <p  style={{fontSize:'25px',fontFamily:'Chillax-Bold', color:'white'}}>This is what PAWA offers…</p>
-                  </div>
-  
-  
-                  {/* section Content Divs */}
-                        <ContentDiv contentHead={'API Tokens'}  content={'For a newsletter featuring local weekends events'}  />
-                        <ContentDiv contentHead={'API Endpoints'}  content={'Vocabulary for college'}  />
-                        <ContentDiv contentHead={'Short documentation to programatically send request '}  content={' for my social media with trends'}  />
-                  {/* section */}
-  
-                  <div className="flex flex-col  w-[721px] mt-36">
-                        
-                         
-                          <p className="text-[#F7F7F7] text-center text-[12px] mt-10" style={{opacity:'0.8'}}>PAWA can make mistake. Consider checking important information. Read our <span className=" underline text-[#D98C07]">Privacy Policy</span></p>
-                  </div>
-  
-              </div>
-          {/* center content */}
-  
+            <DocumentCard /> 
+            <DocumentCard /> 
+            <DocumentCard />            
+                                
+        </div>
+        <InfoFooter />
+        {/* mid-centerd */}
       </div>
-  
-    )
-  }
+      {/* center content */}
 
+    </div>
 
-  
-  export default Documentation
+  )
+}
+
+export default Documentation

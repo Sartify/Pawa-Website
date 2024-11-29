@@ -25,13 +25,14 @@ interface ContentDivProps {
 
   }
 
+
   interface ActionButtonProps {
     buttonText: string; // Text for the button (e.g., "Share")
     buttonIcon: string; // Path to the icon for the button
     avatarText: string; // Text inside the circular avatar (e.g., "ND")
   }
   
-  const ActionButton: React.FC<ActionButtonProps> = ({
+  export const ActionButton: React.FC<ActionButtonProps> = ({
     buttonText,
     buttonIcon,
     avatarText,
@@ -55,8 +56,13 @@ interface ContentDivProps {
             </div>
           </button>
         </div>
-  
-        {/* Circular Avatar */}
+            <  DevButton
+             buttonText="PAWA for Dev"
+             buttonIcon="/assets/code.png"
+             avatarText="ND"
+            
+            />
+        {/* Ci  rcular Avatar */}
         <div
           className="flex justify-center items-center relative rounded-full w-[50px] h-[50px] top-[-10px] bg-[#FFFFFF29] ml-6"
           style={{
@@ -68,8 +74,39 @@ interface ContentDivProps {
       </div>
     );
   };
-
-
+  
+  
+  export const DevButton: React.FC<ActionButtonProps> = ({
+    buttonText,
+    buttonIcon,
+    avatarText,
+  }) => {
+    return (
+      <div className="flex mx-2" >
+        {/* Share Button */}
+        <div>
+          <button
+            className="w-[130px]"
+            style={{
+              border: "1px solid #DDDDDD",
+              backgroundColor: "#FAFFFF",
+              padding: "4px 10px",
+              borderRadius: "5px",
+            }}
+          >
+            <div className="flex justify-between items-center">
+              <p style={{ color: "#2F2D2D", fontSize: "13px", fontFamily:'Avenir-Medium' }}>{buttonText}</p>
+              <img src={buttonIcon} width="14px" alt="Button Icon" />
+            </div>
+          </button>
+        </div>
+  
+        {/* Circular Avatar */}
+    
+      </div>
+    );
+  };
+  
 
 const DevDashboard = () => {
     return (

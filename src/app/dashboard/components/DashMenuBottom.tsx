@@ -2,7 +2,7 @@ function DashMenuBottom() {
   return (
     <>
         {/* bottom content */}
-        <div className="absolute bottom-8">
+        <div className="absolute bottom-8 ml-[-7px]">
                             <div>
                                 <button style={{border:'1px solid white', padding:'12px' , borderRadius:'4px'}}>
                                     <div className="flex">

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import DashMenuBottom from "./components/DashMenuBottom";
 import Image from "next/image";
 
+
 interface HistoryChatsProps {
     chats: { title: string}[];
   }

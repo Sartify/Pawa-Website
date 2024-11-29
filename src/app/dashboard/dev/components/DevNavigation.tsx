@@ -109,7 +109,7 @@ function DevNavigation() {
          {/* Navigation */}
          <div className="flex-col w-[296px] bg-[#50504F] p-8 justify"  >
                       
-                      <Image src="/assets/pawa-dash-logo.png" width={126} height={33} alt="" />
+                      <Image src="/assets/pawa-dev.svg" width={170} height={33} alt="" />
                       <DevMenu/>
                       <Overview/>
                       <DashMenuBottom/>
