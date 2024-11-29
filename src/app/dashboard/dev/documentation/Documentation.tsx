@@ -1,9 +1,6 @@
- "use client"
+"use client"
 import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
-import DashMenuBottom from "../components/DashMenuBottom"
-import DevNavigation from "./components/DevNavigation"
+import DevNavigation from "../components/DevNavigation"
 
 interface ContentDivProps {
     contentHead:String,
@@ -71,12 +68,14 @@ interface ContentDivProps {
 
 
 
-const DevDashboard = () => {
+const Documentation = () => {
+
+   
     return (
   
       <div className="flex w-full bg-red-500 " style={{height:'100vh'}}>
           {/* Navigation */}
-                  <DevNavigation/>
+                  <DevNavigation />
           {/* Navigation */}
   
   
@@ -128,4 +127,4 @@ const DevDashboard = () => {
 
 
   
-  export default DevDashboard
+  export default Documentation

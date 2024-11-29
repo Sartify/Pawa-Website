@@ -1,8 +1,13 @@
-import React from 'react'
+
+import ApiEndPoint from "./ApiEndpoint"
 
 function page() {
+
+
   return (
-    <div>apiendpoint</div>
+    <>
+      <ApiEndPoint/>
+    </>
   )
 }
 

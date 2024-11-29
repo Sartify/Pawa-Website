@@ -1,8 +1,10 @@
-import React from 'react'
+import ApiToken from './ApiToken'
 
 function page() {
   return (
-    <div>apitoken</div>
+    <>
+        <ApiToken/>
+    </>
   )
 }
 

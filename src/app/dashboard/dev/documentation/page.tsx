@@ -1,8 +1,11 @@
 import React from 'react'
+import Documentation from './Documentation'
 
 function page() {
   return (
-    <div>documentation</div>
+    <>
+      <Documentation/>
+    </>
   )
 }
 
