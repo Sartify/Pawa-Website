@@ -1,12 +1,12 @@
 
 const FeaturesSection = () => {
   return (
-    <div className="flex w-full h-[500px]    justify-center items-center">
-         <div className="absolute z-30 left-0   w-[800px] h-[80px]  top-[763px] bg-[#2F333E]"
+    <div className="flex w-full h-[500px]  justify-center items-center">
+         <div className="absolute z-30   w-[800px] h-[80px]  top-[763px] bg-[#2F333E]"
             style={{
                 transform: 'skew(-35deg, 0deg)',
                 borderBottomRightRadius:'35px',
-                marginLeft:'-100px'
+                marginLeft:'-81.6em'
             }}
             >
             </div>
