@@ -6,7 +6,7 @@ const DocumentSection = () => {
   return (
     <>
             {/* up section recaped  */}
-                <div className="mt-100 flex w-full h-[300px] pt-20  justify-center items-center"></div>
+                <div  id="documentation" className="mt-100 flex w-full h-[300px] pt-20  justify-center items-center"></div>
             {/* up section recaped  */}
             <div className="mt-100 flex w-full h-[520px]  justify-center items-center"
                 style={{

@@ -2,7 +2,7 @@
 
 const DemoSection = () => {
   return (
-     <div className="mt-100 flex w-full h-[380px]  justify-center items-start mt-20 ">
+     <div id="demo" className="mt-100 flex w-full h-[380px]  justify-center items-start mt-20 ">
         <div className="w-[1366px] flex-col items-center justify-center text-center">
           <p className="mb-4" style={{fontFamily:'Avenir-Black', color:'#FF3601' , fontSize:'16px'}}>DEMONSTRATION</p>
           <p className="mb-4" style={{fontFamily:'Avenir-Black', color:'#12141D' , fontSize:'30px'}}>

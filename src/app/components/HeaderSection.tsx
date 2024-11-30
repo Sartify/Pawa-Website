@@ -1,7 +1,6 @@
-import Image from "next/image";
+"use client"
 import Link from "next/link";
-
-
+import { useEffect, useState } from "react";
 
 const headerStyle = {
     // maxWidth:"2366px",
@@ -16,8 +15,6 @@ const imageGrad1 = {
 const imageGrad2 = {
     backgroundImage: 'linear-gradient(to left, #2F333E 0%, transparent 100%)'
 }
-
-
 
 const DefaultButton = () => {
     return (
@@ -102,7 +99,6 @@ const ColumnLayoutEdgesRight = () => {
     );
 }
 
-
 const LinkStyle = {
     display:'block',
     fontFamily:'Avenir-Light',
@@ -140,29 +136,85 @@ export const AuthLinkStyle = {
     
 }
 
+const ScrollToHomeButton = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        setIsVisible(scrollTop > 300); // Show button when scrolled more than 300px
+    };
+
+    const scrollToHome = () => {
+        const homeSection = document.getElementById("home");
+        if (homeSection) {
+            homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    return (
+        isVisible && (
+            <button
+                onClick={scrollToHome}
+                className="fixed bottom-8 right-8 bg-[#FFA200] text-white font-bold p-3 rounded-full shadow-lg hover:bg-[#e69500] transition"
+                aria-label="Scroll to Home"
+                style={{ zIndex: 1000 }}
+            >
+                ↑
+            </button>
+        )
+    );
+};
+
+
+
 const Navlinks = ()=>{
+
+    const handleScroll = (id: string) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
+
+
     return (
         <>
             <div className="flex ">
                 <div>
-                    <Link href="/Home"  style={ActiveLinkStyle}>
+                    <button 
+                    onClick={() => handleScroll("home")}
+                      style={LinkStyle}>
                         Home
-                    </Link>
+                    </button>
                 </div>
                 <div>
-                    <Link href="/Features"  style={LinkStyle}>
+                <button 
+                    onClick={() => handleScroll("features")}
+                      style={LinkStyle}>
                         Features
-                    </Link>
+                    </button>
                 </div>
                 <div>
-                    <Link href="/Documentation"  style={LinkStyle}>
+                <button 
+                    onClick={() => handleScroll("documentation")}
+                      style={LinkStyle}>
                         Documentation
-                    </Link>
+                    </button>
                 </div>
                 <div>
-                    <Link href="/Demo"  style={LinkStyle}>
+                <button 
+                    onClick={() => handleScroll("demo")}
+                      style={LinkStyle}>
                         Demo
-                    </Link>
+                    </button>
                 </div>
             </div>        
         </>
@@ -193,7 +245,8 @@ const AuthLinks = ()=>{
 const HeaderSection = () => {
     return (
         <>
-            <div className="flex justify-center items-center h-[764px] bg-[#2F333E]  ">
+        <ScrollToHomeButton/>
+            <div id="home" className="flex justify-center items-center h-[764px] bg-[#2F333E]  ">
                 <div style={headerStyle} className="w-[1366px] z-10  h-[764px]  flex items-center justify-center">
                     <div className=" z-10 flex w-full bg-red-500 h-[764px] flex items-center justify-center">
                         <p className=" text-white text-lg">Div 1</p>
@@ -203,7 +256,6 @@ const HeaderSection = () => {
                         <div className="absolute  z-0 h-[764px] w-[100%]   inset-0 bg-[#2F333E] mix-blend-color" ></div>
 
                         {/* <ThreeColumnLayout/> */}
-
                         <ColumnLayoutEdgesLeft />
                         <ColumnLayout />
                         <ColumnLayoutEdgesRight />
