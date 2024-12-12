@@ -18,9 +18,9 @@ const imageGrad2 = {
 
 const DefaultButton = () => {
     return (
-        <button className="px-[19px] py-[12px] bg-[#DC8F0A] rounded-[6px] opacity-100 text-black font-medium">
+        <Link href={'/auth/register'} className="px-[19px] py-[12px] bg-[#DC8F0A] rounded-[6px] opacity-100 text-black font-medium">
             CREATE
-        </button>
+        </Link>
     );
 };
 
@@ -43,8 +43,8 @@ const ColumnLayout = () => {
             <div className="flex-col">
                 <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img>
                 <div className="pb-6 pt-6">
-                    <text style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]">Conversational</text> <br />
-                    <text style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]">Interface:</text>
+                    <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px] mb-[-25px]">Conversational</p> <br />
+                    <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]">Interface:</p>
                 </div>
 
                 <div>
@@ -64,7 +64,7 @@ const ColumnLayoutEdgesLeft = () => {
             <div className="flex-col">
                 {/* <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img> */}
                 <div className="pb-6 pt-6">
-                    <text style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]"></text> <br />
+                    <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]"></p> <br />
                     {/* <text style={{fontFamily:"Chillax-Bold"}} className="text-white text-[20px]">Interface:</text> */}
                 </div>
 
@@ -85,7 +85,7 @@ const ColumnLayoutEdgesRight = () => {
             <div className="flex-col">
                 <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img>
                 <div className="pb-6 pt-6">
-                    <text style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]">API Access</text> <br />
+                    <p style={{ fontFamily: "Chillax-Bold" }} className="text-white mb-[-25px] text-[20px]">API Access</p> <br />
                     {/* <text style={{fontFamily:"Chillax-Bold"}} className="text-white text-[20px]">Interface:</text> */}
                 </div>
 
@@ -226,12 +226,12 @@ const AuthLinks = ()=>{
         <>
             <div className="flex ">
                 <div>
-                    <Link href="/Home"  style={LinkStyle}>
+                    <Link href="/auth/register"  style={LinkStyle}>
                         Log In
                     </Link>
                 </div>
                 <div>
-                    <Link href="/Features"  style={AuthLinkStyle}>
+                    <Link href="/auth/register"  style={AuthLinkStyle}>
                         Register
                     </Link>
                 </div>

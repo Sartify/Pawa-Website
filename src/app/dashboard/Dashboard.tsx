@@ -2,6 +2,8 @@
 import { useRef } from "react";
 import DashMenuBottom from "./components/DashMenuBottom";
 import Image from "next/image";
+import { DevButton } from "./dev/DevDashboard";
+import { useRouter } from "next/navigation";
 
 
 interface HistoryChatsProps {
@@ -186,7 +188,56 @@ interface HistoryChatsProps {
   };
 
 
+  // const DevButton2: React.FC<ActionButtonProps> = ({
+  //   buttonText,
+  //   buttonIcon,
+  //   avatarText,
+  // }) => {
+  //   const router = useRouter();
+
+  //   const goToPage = (path: string): void => {
+  //     router.push(path); // Navigate to the specified path
+  //   };
+  
+
+
+    
+      <div className="flex mx-2" >
+        {/* Share Button */}
+        <div>
+          <button
+            className="w-[130px]"
+            style={{
+              border: "1px solid #DDDDDD",
+              backgroundColor: "#FAFFFF",
+              padding: "4px 10px",
+              borderRadius: "5px",
+            }}
+          >
+            <div className="flex justify-between items-center">
+              <p style={{ color: "#2F2D2D", fontSize: "13px", fontFamily:'Avenir-Medium' }}>{'PAWA for Dev'}</p>
+              <img src={'/assets/code.png'} width="14px" alt="Button Icon" />
+            </div>
+          </button>
+        </div>
+  
+        {/* Circular Avatar */}
+    
+      </div>
+   
+ 
+
+
 const Dashboard = () => {
+
+
+ 
+  const router = useRouter();
+
+  const goToPage = (path: string): void => {
+    router.push(path); // Navigate to the specified path
+  };
+  
   return (
 
     <div className="flex w-full bg-red-500 " style={{height:'100vh'}}>
@@ -211,7 +262,31 @@ const Dashboard = () => {
                             <p style={{ color: '#FCFEFB', opacity:'0.8' }}>Back to Website </p>
                         </div>
                 
-                    <div className="flex ">
+                    <div className="flex flex-row">
+
+                    <div className="flex mx-2" >
+      
+        <div>
+          <button
+          onClick={() => goToPage('/dashboard/dev' )}
+            className="w-[130px]"
+            style={{
+              border: "1px solid #DDDDDD",
+              backgroundColor: "#FAFFFF",
+              padding: "4px 10px",
+              borderRadius: "5px",
+            }}
+          >
+            <div className="flex justify-between items-center">
+              <p style={{ color: "#2F2D2D", fontSize: "13px", fontFamily:'Avenir-Medium' }}>{'PAWA for Dev'}</p>
+              <img src={'/assets/code.png'} width="14px" alt="Button Icon" />
+            </div>
+          </button>
+        </div>
+  
+        {/* Circular Avatar */}
+    
+      </div>
                         <div>
                             <button  className="w-[78px] " style={{border:'1px solid #DDDDDD', backgroundColor:'#FFFFFF29', padding:'4px 10px', borderRadius:'5px'}}>
                                 <div className="flex justify-between items-center">

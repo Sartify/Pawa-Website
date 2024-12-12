@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useState } from "react"
 import DashMenuBottom from "../components/DashMenuBottom"
 import DevNavigation from "./components/DevNavigation"
+import { useRouter } from "next/navigation"
+import { NEXT_HMR_REFRESH_HEADER } from "next/dist/client/components/app-router-headers"
 
 interface ContentDivProps {
     contentHead:String,
@@ -30,6 +32,7 @@ interface ContentDivProps {
     buttonText: string; // Text for the button (e.g., "Share")
     buttonIcon: string; // Path to the icon for the button
     avatarText: string; // Text inside the circular avatar (e.g., "ND")
+   
   }
   
   export const ActionButton: React.FC<ActionButtonProps> = ({
@@ -37,11 +40,18 @@ interface ContentDivProps {
     buttonIcon,
     avatarText,
   }) => {
+    const router = useRouter();
+
+    const goToPage = (path: string): void => {
+      router.push(path); // Navigate to the specified path
+    };
     return (
+   
       <div className="flex">
         {/* Share Button */}
         <div>
           <button
+            
             className="w-[78px]"
             style={{
               border: "1px solid #DDDDDD",
@@ -57,6 +67,7 @@ interface ContentDivProps {
           </button>
         </div>
             <  DevButton
+         
              buttonText="PAWA for Dev"
              buttonIcon="/assets/code.png"
              avatarText="ND"
@@ -109,6 +120,7 @@ interface ContentDivProps {
   
 
 const DevDashboard = () => {
+
     return (
   
       <div className="flex w-full bg-red-500 " style={{height:'100vh'}}>
@@ -129,6 +141,7 @@ const DevDashboard = () => {
                           </div>
                   
                         <ActionButton
+              
                             buttonText="Share"
                             buttonIcon="/assets/share-icon.png"
                             avatarText="ND"
