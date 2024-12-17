@@ -18,7 +18,7 @@ const imageGrad2 = {
 
 const DefaultButton = () => {
     return (
-        <Link href={'/auth/register'} className="px-[19px] py-[12px] bg-[#DC8F0A] rounded-[6px] opacity-100 text-black font-medium">
+        <Link href={'/auth'} className="px-[19px] py-[12px] bg-[#DC8F0A] rounded-[6px] opacity-100 text-black font-medium">
             CREATE
         </Link>
     );
@@ -226,12 +226,12 @@ const AuthLinks = ()=>{
         <>
             <div className="flex ">
                 <div>
-                    <Link href="/auth/register"  style={LinkStyle}>
+                    <Link href="/auth/"  style={LinkStyle}>
                         Log In
                     </Link>
                 </div>
                 <div>
-                    <Link href="/auth/register"  style={AuthLinkStyle}>
+                    <Link href="/auth/"  style={AuthLinkStyle}>
                         Register
                     </Link>
                 </div>
