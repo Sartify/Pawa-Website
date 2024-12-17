@@ -1,4 +1,5 @@
 "use client"
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -222,16 +223,18 @@ const Navlinks = ()=>{
 }
 
 const AuthLinks = ()=>{
+    const { data: session, status } = useSession();
+  
     return (
         <>
             <div className="flex ">
                 <div>
-                    <Link href="/auth/"  style={LinkStyle}>
+                    <Link href={status === 'authenticated' ? '/dashboard/user' : '/auth'}  style={LinkStyle}>
                         Log In
                     </Link>
                 </div>
                 <div>
-                    <Link href="/auth/"  style={AuthLinkStyle}>
+                    <Link href={status === 'authenticated' ? '/dashboard/user' : '/auth'}   style={AuthLinkStyle}>
                         Register
                     </Link>
                 </div>
@@ -243,6 +246,7 @@ const AuthLinks = ()=>{
 
 
 const HeaderSection = () => {
+
     return (
         <>
         <ScrollToHomeButton/>

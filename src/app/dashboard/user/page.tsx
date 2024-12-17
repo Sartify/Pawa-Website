@@ -1,20 +1,17 @@
 
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+'use client'
 import Dashboard from './Dashboard';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { SessionProvider } from 'next-auth/react';
 
 
-const page =  async () => {
-
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    redirect('/auth'); // Redirect unauthenticated users
-  }
+const page =   () => {
   return (
-    <>
-        <Dashboard/>
-    </>
+    
+    <SessionProvider>
+      <Dashboard/>
+    </SessionProvider>
+       
   )
 }
 

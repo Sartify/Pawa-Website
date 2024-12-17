@@ -2,9 +2,10 @@
 import { useRef } from "react";
 import DashMenuBottom from "../components/DashMenuBottom";
 import Image from "next/image";
-import { DevButton } from "../dev/DevDashboard";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import LogoutButton from "../components/LogoutButton";
 
 
 interface HistoryChatsProps {
@@ -230,10 +231,11 @@ interface HistoryChatsProps {
 
 
 const Dashboard = () => {
-
-
- 
   const router = useRouter();
+  const { data: session, status } = useSession();
+
+
+
 
   const goToPage = (path: string): void => {
     router.push(path); // Navigate to the specified path
@@ -248,6 +250,7 @@ const Dashboard = () => {
                     <NewChatButton/>
                     <HistoryChats chats={chatData} />
                     <DashMenuBottom/>
+                    <LogoutButton/>
             </div>
         {/* Navigation */}
 
@@ -299,12 +302,12 @@ const Dashboard = () => {
                         
 
                         <div className=" flex justify-center items-center relative rounded-full w-[50px] h-[50px]  top-[-10px] bg-[#FFFFFF29]  ml-6  " style={{border:'1px solid white'}}>
-                                <p style={{fontSize:'22px',color:'white'}}>ND</p>
+                                <p className="uppercase" style={{fontSize:'22px',color:'white'}}>{session?.user?.email ? session.user.email.charAt(0) : 'Guest'}</p>
                         </div>
                     </div>
                 </div>
                 <div className="flex justify-center items-center">
-                    <div><img src="assets/buddy.png" height={'130px'} width={'147'} alt="" /></div>
+                    <div><img src="/assets/buddy.png" height={'130px'} width={'147'} alt="" /></div>
                 </div>
                 <div className="flex justify-center items-center my-10">
                     <p  style={{fontSize:'25px',fontFamily:'Chillax-Bold', color:'white'}}>How can I help you today?</p>

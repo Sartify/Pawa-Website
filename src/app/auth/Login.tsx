@@ -13,15 +13,6 @@ export function Login() {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        // try {
-        //     const response = await login(email, password);
-        //     console.log(response); // Store token if successful
-        //     router.push('/dashboard');
-        // } catch (error) {
-        //     console.log('Login failed:', error);
-        //     alert('Invalid credentials, please try again.');
-        // }
-
         try {
             const result = await signIn('credentials', {
                 email,
@@ -32,13 +23,12 @@ export function Login() {
               if (result?.error) {
                 alert('Invalid credentials');
               } else {
-                router.push('/dashboard');
+                router.push('/dashboard/user');
               }
             
         } catch (error) {
             console.log('Login failed:', error);
             alert('Invalid credentials, please try again.');
-            
         }
        
     };
