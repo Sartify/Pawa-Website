@@ -13,7 +13,6 @@ interface AuthToggleProps {
     setAuthState: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
 const ToggleSwitch: React.FC<AuthToggleProps> = ({ authState, setAuthState }) => {
 
     const handleToggle = (event: React.MouseEvent<HTMLButtonElement>): void => {
@@ -23,7 +22,6 @@ const ToggleSwitch: React.FC<AuthToggleProps> = ({ authState, setAuthState }) =>
     
     };
    
-
     const baseStyle = {
         borderRadius: "5px",
         cursor: "pointer",
@@ -56,7 +54,7 @@ const ToggleSwitch: React.FC<AuthToggleProps> = ({ authState, setAuthState }) =>
 };
 
 
-const RegisterPage = () => {
+const AuthPage = () => {
 
     const [authState, setAuthState] = useState<string>("signin");
     return (
@@ -101,4 +99,4 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage
+export default AuthPage

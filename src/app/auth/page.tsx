@@ -1,9 +1,9 @@
-import RegisterPage from './RegisterPage'
+import AuthPage from './AuthPage'
 
 const page = () => {
   return (
     <>
-        <RegisterPage/>
+        <AuthPage/>
     </>
   )
 }

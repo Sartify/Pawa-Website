@@ -4,6 +4,7 @@ import DashMenuBottom from "./components/DashMenuBottom";
 import Image from "next/image";
 import { DevButton } from "./dev/DevDashboard";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 interface HistoryChatsProps {
@@ -256,9 +257,9 @@ const Dashboard = () => {
                 <div className="flex  w-full   p-8">
                   
                     <div className="flex w-full  " >
-                            <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
+                            <Link href={'/'} className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
                                 <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
-                            </button>
+                            </Link>
                             <p style={{ color: '#FCFEFB', opacity:'0.8' }}>Back to Website </p>
                         </div>
                 

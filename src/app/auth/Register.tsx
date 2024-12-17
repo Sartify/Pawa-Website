@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { useState } from "react";
 import { register } from "../services/authService";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
     const router = useRouter();
