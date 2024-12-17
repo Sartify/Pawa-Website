@@ -1,8 +1,8 @@
 "use client"
 import { useRef } from "react";
-import DashMenuBottom from "./components/DashMenuBottom";
+import DashMenuBottom from "../components/DashMenuBottom";
 import Image from "next/image";
-import { DevButton } from "./dev/DevDashboard";
+import { DevButton } from "../dev/DevDashboard";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 

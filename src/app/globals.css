@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('css/chillax.css');
-@import url('css/avenir.css');
+@import url('../css/chillax.css');
+@import url('../css/avenir.css');
 
 :root {
   --background: #ffffff;
