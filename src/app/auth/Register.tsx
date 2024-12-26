@@ -17,7 +17,14 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await register(firstname, lastname, email, password);
-      router.push('/dashboard');
+
+      if (response?.error) {
+        alert('Invalid credentials');
+      } else {
+        // router.push('/auth');
+        alert('Successfully registered! Redirecting...');
+        window.location.href = '/auth';
+      }
     } catch (error) {
       console.log('Registration failed:', error);
       alert('Invalid credentials, please try again.');

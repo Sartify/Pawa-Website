@@ -1,18 +1,16 @@
-"use client"
-import { useRef } from "react";
+
+import { useRef, useState } from "react";
 import DashMenuBottom from "../components/DashMenuBottom";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import LogoutButton from "../components/LogoutButton";
-
+import { ChatCompletionRequest, chatCompletionStream } from "@/services/chatService";
 
 interface HistoryChatsProps {
     chats: { title: string}[];
   }
-  
-
   const chatData = [
     { title: "Sleep Management Tips"},
     { title: "Healthy Eating Habits" },
@@ -116,7 +114,9 @@ interface HistoryChatsProps {
   
 
   const AskInput = () => {
-    
+
+
+    const [response, setResponse] = useState('');
     const inputRef = useRef<HTMLInputElement>(null); // Create a ref for the input element
 
     const handleContainerClick = () => {
@@ -172,9 +172,45 @@ interface HistoryChatsProps {
             style={{
               backgroundColor: "#FFA200",
             }}
-            onClick={(e) => {
+            onClick={async (e) => {
+              setResponse(''); // reset before streaming
               e.stopPropagation(); // Prevent button click from triggering the container click
+              //  const response = await chatCompletion()
+
+              const requestData: ChatCompletionRequest = {
+                model: 'pawa-mini-v0',
+                messages: [{ role: 'user', content: 'unaweza kueleza kwa kina maana ya neno upendo?' }],
+                temperature: 0.1,
+                max_tokens: 1024,
+                top_p: 0.95,
+                frequency_penalty: 0.3,
+                presence_penalty: 0.3,
+                seed: 2024,
+                stream: true,
+                save_history: true,
+              };
+
+
+              const handleClick = async () => {
+                // Clear response
+                setResponse('');
+            
+                try {
+                  await chatCompletionStream(requestData, (chunk: string) => {
+                    // Append chunk to state
+                    setResponse((prev) => prev + chunk);
+                  });
+                } catch (error) {
+                  console.error(error);
+                }
+              };
+
+
               console.log("Microphone button clicked!");
+              console.log({
+                response
+              })
+              
             }}
           >
             <img
@@ -248,7 +284,7 @@ const Dashboard = () => {
             <div className="flex-col w-[296px] bg-[#50504F] p-8 justify"  >
                     <Image src="/assets/pawa-dash-logo.png" width={126} height={33} alt="" />
                     <NewChatButton/>
-                    <HistoryChats chats={chatData} />
+                      <HistoryChats chats={chatData} />
                     <DashMenuBottom/>
                     <LogoutButton/>
             </div>
@@ -340,7 +376,7 @@ const Dashboard = () => {
                                 </div>
                         </div>
                             <AskInput/>
-                        <p className="text-[#F7F7F7] text-center text-[12px] mt-10" style={{opacity:'0.8'}}>PAWA can make mistake. Consider checking important information. Read our <span className=" underline text-[#D98C07]">Privacy Policy</span></p>
+                        <p className="text-[#F7F7F7] text-center text-[12px] mt-4" style={{opacity:'0.8'}}>PAWA can make mistake. Consider checking important information. Read our <span className=" underline text-[#D98C07]">Privacy Policy</span></p>
                 </div>
 
             </div>
