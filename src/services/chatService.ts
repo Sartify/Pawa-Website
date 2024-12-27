@@ -22,11 +22,10 @@ import { headers } from "next/headers";
     save_history: boolean;
   }
   
-  export async function chatCompletionStream(
-    requestData: ChatCompletionRequest,
-    onChunk: (chunk: string) => void, // <--- Accept a callback
-  ): Promise<void> {
-    // 1. Fetch the streaming response
+  export async function chatCompletion(
+    requestData: ChatCompletionRequest
+  ): Promise<string> {
+    // 1. Fetch the response
     const response = await fetch('http://localhost:4000/api/v1/chats/completions', {
       method: 'POST',
       headers: {
@@ -35,28 +34,16 @@ import { headers } from "next/headers";
       body: JSON.stringify(requestData),
     });
   
-    // 2. Check for errors or empty body
+    // 2. Check for errors
     if (!response.ok) {
       throw new Error(`Request failed with status ${response.status}`);
     }
-    if (!response.body) {
-      throw new Error('No response body available for streaming.');
-    }
   
-    // 3. Create a reader and decode chunks
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
+    // 3. Parse the response as text (or JSON if needed)
+    const responseText = await response.text();
   
-    // 4. Read chunks in a loop
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-  
-      // Decode chunk to string
-      const chunkText = decoder.decode(value, { stream: true });
-      // Pass the chunk to the callback
-      onChunk(chunkText);
-    }
+    // 4. Return the entire response
+    return responseText;
   }
   
   
