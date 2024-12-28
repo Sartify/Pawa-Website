@@ -15,8 +15,6 @@ const AskInput = ({fetchResults, setQuery}:any) => {
     const handleInputChange = (e:any) => {
       setQuery(e.target.value); 
     };
-
-   
     return (
         <>
         <ChatNotification/>
