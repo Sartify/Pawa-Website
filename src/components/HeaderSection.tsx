@@ -77,6 +77,7 @@ const ColumnLayoutEdgesLeft = () => {
 
     );
 }
+
 const ColumnLayoutEdgesRight = () => {
 
     return (
