@@ -31,7 +31,6 @@ const SearchDiv = () => {
             <p className="typewriter">Jinsi ya kuandaa somo la sayansi</p>
         </div>
         < DefaultButton />
-
     </div>;
 };
 
@@ -252,10 +251,10 @@ const HeaderSection = () => {
         <ScrollToHomeButton/>
             <div id="home" className="flex justify-center items-center h-[764px] bg-[#2F333E]  ">
                 <div style={headerStyle} className="w-[1366px] z-10  h-[764px]  flex items-center justify-center">
-                    <div className=" z-10 flex w-full bg-red-500 h-[764px] flex items-center justify-center">
+                    <div className=" z-10 flex w-full bg-red-500 h-[764px]  items-center justify-center">
                         <p className=" text-white text-lg">Div 1</p>
                     </div>
-                    <div className=" relative flex w-[106%]  h-[764px]  bg-[url('/assets/spacecraft.png')] bg-cover bg-center  flex items-center justify-center   " style={{ backgroundSize: '102%', overflow: "hidden" }}>
+                    <div className=" relative w-[106%]  h-[764px]  bg-[url('/assets/spacecraft.png')] bg-cover bg-center  flex items-center justify-center   " style={{ backgroundSize: '102%', overflow: "hidden" }}>
                         {/* primary color background blending */}
                         <div className="absolute  z-0 h-[764px] w-[100%]   inset-0 bg-[#2F333E] mix-blend-color" ></div>
 
@@ -295,7 +294,7 @@ const HeaderSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex w-full  h-[764px] flex items-center justify-center">
+                    <div className="flex w-full  h-[764px] items-center justify-center">
                         {/* right and left gradients */}
                         <div className="flex  h-[764px]  w-[50%]  " style={imageGrad1}></div>
                         <div className="flex  h-[764px]  w-[50%] " style={imageGrad2}></div>
