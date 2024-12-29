@@ -4,28 +4,28 @@ import DevNavigation from "../components/DevNavigation"
 import InfoFooter from "../components/InfoFooter"
 import { CustomButton } from "../apitoken/ApiToken"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { dark, docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
-interface ContentDivProps {
-  contentHead: String,
-  content: String
-}
+// interface ContentDivProps {
+//   contentHead: string,
+//   content: string
+// }
 
-const ContentDiv: React.FC<ContentDivProps> = ({ contentHead, content }) => {
-  return (
-    <div className="mb-3 flex flex-row  items-center justify-between mb-2 p-1 " style={{ border: '1px solid #FFFFFF', opacity: '1 ', borderRadius: '5px' }}>
-      <div className=" flex flex-row  items-center justify-between px-10  bg-[#FFFFFF29]">
-        <div className="flex  flex-col justify-center  w-[722px]   py-5  " style={{ opacity: '0.9 ', borderRadius: '5px' }}>
-          <p className="mb-2" style={{ color: 'white', fontFamily: 'Avenir-Medium', fontSize: '15px' }}>{contentHead}</p>
-          <p style={{ color: 'white', fontSize: '14px', fontFamily: 'Avenir-Oblique', opacity: '0.7' }}>{content}</p>
-        </div>
-        <Image src={'/assets/right-arrow.svg'} width={25} height={17} alt="" />
-      </div>
-    </div>
-  )
+// const ContentDiv: React.FC<ContentDivProps> = ({ contentHead, content }) => {
+//   return (
+//     <div className="mb-3 flex flex-row  items-center justify-between mb-2 p-1 " style={{ border: '1px solid #FFFFFF', opacity: '1 ', borderRadius: '5px' }}>
+//       <div className=" flex flex-row  items-center justify-between px-10  bg-[#FFFFFF29]">
+//         <div className="flex  flex-col justify-center  w-[722px]   py-5  " style={{ opacity: '0.9 ', borderRadius: '5px' }}>
+//           <p className="mb-2" style={{ color: 'white', fontFamily: 'Avenir-Medium', fontSize: '15px' }}>{contentHead}</p>
+//           <p style={{ color: 'white', fontSize: '14px', fontFamily: 'Avenir-Oblique', opacity: '0.7' }}>{content}</p>
+//         </div>
+//         <Image src={'/assets/right-arrow.svg'} width={25} height={17} alt="" />
+//       </div>
+//     </div>
+//   )
 
-}
+// }
 
 interface ActionButtonProps {
   buttonText: string; // Text for the button (e.g., "Share")
@@ -53,7 +53,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
         >
           <div className="flex justify-between items-center">
             <p style={{ color: "#E4E4E4", fontSize: "13px" }}>{buttonText}</p>
-            <img src={buttonIcon} width="10px" alt="Button Icon" />
+            <Image src={buttonIcon} width={10} height={10} alt="Button Icon" />
           </div>
         </button>
       </div>
@@ -80,7 +80,6 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
 export const DevButton: React.FC<ActionButtonProps> = ({
   buttonText,
   buttonIcon,
-  avatarText,
 }) => {
   return (
     <div className="flex mx-2" >
@@ -97,7 +96,7 @@ export const DevButton: React.FC<ActionButtonProps> = ({
         >
           <div className="flex justify-between items-center">
             <p style={{ color: "#2F2D2D", fontSize: "13px" }}>{buttonText}</p>
-            <img src={buttonIcon} width="14px" alt="Button Icon" />
+            <Image src={buttonIcon} width={14} height={14} alt="Button Icon" />
           </div>
         </button>
       </div>
@@ -151,7 +150,7 @@ const ApiEndPoint = () => {
         <div className="flex flex-row  w-full  p-8">
           <div className="flex w-full  " >
             <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-              <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
+              <Image src="/assets/left-arrow.png" height={18} width={18} alt="" />
             </button>
             <p style={{ color: '#FCFEFB', opacity: '0.8' }}>Back to Website </p>
           </div>

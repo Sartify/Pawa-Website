@@ -9,10 +9,10 @@ import { usePathname } from 'next/navigation';
 
 
 
-interface OverviewProps {
-    linkname : String;
-    link : String;
-  }
+// interface OverviewProps {
+//     linkname : string;
+//     link : string;
+//   }
 
   const Overview  = ()=>{
     return (
@@ -45,7 +45,7 @@ interface OverviewProps {
             if (matchingLink) {
             setActiveLink(matchingLink.name);  // Set active link based on current route
             }
-        }, [pathname]);  // Re-run effect when the route changes
+        }, );  // Re-run effect when the route changes
     
         const links = [
         { name: "Homepage", href: "/dashboard/dev",icon:'devhomepage-active.svg' },

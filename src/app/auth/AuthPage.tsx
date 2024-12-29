@@ -4,6 +4,7 @@ import React, {  useState } from "react";
 import Register from './Register';
 import Login from './Login';
 import ToggleSwitch from './components/ToggleSwitch'
+import Image from 'next/image';
 
 
 
@@ -17,7 +18,7 @@ const AuthPage = () => {
                     <div className='flex-col w-full  '>
                         <div className="flex w-full  " >
                             <Link  href={'/'} className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-                                <img src="/assets/left-arrow.png" height={'22px'} width={'22px'} alt="" />
+                                <Image src="/assets/left-arrow.png" height={22} width={22} alt="" />
                             </Link>
                             <p style={{ color: 'white' }}>Back</p>
                         </div>
@@ -40,7 +41,7 @@ const AuthPage = () => {
                     </div>
                     <div className=" bg-[url('/assets/spacecraft.png')]  bg-cover bg-center  flex justify-between bg-red-500 w-full p-14" style={{backgroundSize:'102%', borderRadius:'30px', border:'1px solid white'}}>
                             <div className='flex w-full justify-between '>
-                                <div><img height={'44px'} width={'48px'} src="/assets/pawa-logo.png" alt="" /></div>
+                                <div><Image height={44} width={48} src="/assets/pawa-logo.png" alt="" /></div>
                                 <div className="w-[120px] h-[38px] rounded-full bg-[#4B525C] flex items-center justify-between px-4 relative cursor-pointer ">
                                     <ToggleSwitch authState={authState} setAuthState={setAuthState} />
                                 </div>

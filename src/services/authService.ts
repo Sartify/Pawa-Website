@@ -15,7 +15,7 @@ export const login = async (email: string, password: string) => {
       );
       return response.data;
     } catch (error) {
-      console.log('Login error:')
+      console.log(`Login error:${error}`)
       throw new Error('Login failed. Please try again.');
     }
   };
@@ -39,7 +39,7 @@ export const login = async (email: string, password: string) => {
       });
       return response.data;
     } catch (error) {
-      console.log('Registration error:')
+      console.log(`Registration error: ${error}`)
       throw new Error('Registration failed. Please try again.');
     }
   }

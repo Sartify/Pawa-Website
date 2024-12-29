@@ -1,6 +1,8 @@
-import { ChatCompletionRequest, chatCompletion } from "@/services/chatService";
-import axios from "axios";
-import { useRef, useState } from "react";
+// import { ChatCompletionRequest, chatCompletion } from "@/services/chatService";
+// import axios from "axios";
+import Image from "next/image";
+// import { IncomingMessage } from "node:http";
+import { useRef } from "react";
 
 const AskInput = ({fetchResults, setQuery}:any) => {
 
@@ -35,7 +37,7 @@ const AskInput = ({fetchResults, setQuery}:any) => {
           {/* Input Section */}
           <div className="flex flex-row gap-2 items-center scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900  ">
             <div>
-              <img
+              <Image
                 height={24}
                 width={24}
                 src="/assets/image-icon.png"
@@ -73,7 +75,7 @@ const AskInput = ({fetchResults, setQuery}:any) => {
             onClick={fetchResults}
               
           >
-            <img
+            <Image
               width={24}
               height={24}
               src="/assets/microphone-icon.png"

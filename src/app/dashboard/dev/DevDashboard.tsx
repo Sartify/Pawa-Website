@@ -1,15 +1,9 @@
  "use client"
 import Image from "next/image"
-import Link from "next/link"
-import { useState } from "react"
-import DashMenuBottom from "../components/DashMenuBottom"
 import DevNavigation from "./components/DevNavigation"
-import { useRouter } from "next/navigation"
-import { NEXT_HMR_REFRESH_HEADER } from "next/dist/client/components/app-router-headers"
-
 interface ContentDivProps {
-    contentHead:String,
-    content:String
+    contentHead:string,
+    content:string
   }
 
   const ContentDiv : React.FC<ContentDivProps> = ({ contentHead,content})=>{
@@ -40,11 +34,12 @@ interface ContentDivProps {
     buttonIcon,
     avatarText,
   }) => {
-    const router = useRouter();
+    // const router = useRouter();
 
-    const goToPage = (path: string): void => {
-      router.push(path); // Navigate to the specified path
-    };
+    // const goToPage = (path: string): void => {
+    //   router.push(path); // Navigate to the specified path
+    // };
+
     return (
    
       <div className="flex">
@@ -62,7 +57,7 @@ interface ContentDivProps {
           >
             <div className="flex justify-between items-center">
               <p style={{ color: "#E4E4E4", fontSize: "13px" }}>{buttonText}</p>
-              <img src={buttonIcon} width="10px" alt="Button Icon" />
+              <Image src={buttonIcon} width={10} height={10} alt="Button Icon" />
             </div>
           </button>
         </div>
@@ -90,7 +85,7 @@ interface ContentDivProps {
   export const DevButton: React.FC<ActionButtonProps> = ({
     buttonText,
     buttonIcon,
-    avatarText,
+    
   }) => {
     return (
       <div className="flex mx-2" >
@@ -107,7 +102,7 @@ interface ContentDivProps {
           >
             <div className="flex justify-between items-center">
               <p style={{ color: "#2F2D2D", fontSize: "13px", fontFamily:'Avenir-Medium' }}>{buttonText}</p>
-              <img src={buttonIcon} width="14px" alt="Button Icon" />
+              <Image src={buttonIcon} width={14} height={14} alt="Button Icon" />
             </div>
           </button>
         </div>
@@ -135,7 +130,7 @@ const DevDashboard = () => {
                     
                       <div className="flex w-full  " >
                               <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-                                  <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
+                                  <Image src="/assets/left-arrow.png" height={18} width={18} alt="" />
                               </button>
                               <p style={{ color: '#FCFEFB', opacity:'0.8' }}>Back to Website </p>
                           </div>

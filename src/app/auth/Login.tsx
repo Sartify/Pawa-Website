@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { login } from "../../services/authService";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { EmailInput, PasswordInput } from "./components/CustomInputs";
@@ -11,7 +10,7 @@ export function Login() {
     const [password, setPassword] = useState('');
     const router = useRouter();
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             const result = await signIn('credentials', {

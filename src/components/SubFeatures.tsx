@@ -1,6 +1,5 @@
-const PawaStats = () => {
+import Image from "next/image"
 
-}
 
 
 
@@ -13,7 +12,7 @@ const SubFeatures = () => {
                         <div className=" flex justify-between items-center rounded-[15px]  bg-[#F4F4F4] p-14 ">
                             <div className="flex ">
                                 <div className="pr-6">
-                                    <img src="/assets/semi-conductor.png" height={"73.2px"} width={'73.2px'} alt="" />
+                                    <Image src="/assets/semi-conductor.png" height={73.2} width={73.2} alt="" />
                                 </div>
                                 <div >
                                     <p className="" style={{ fontFamily: 'Avenir-Heavy', fontSize: '17px', marginTop: '-14px', lineHeight: '20px' }}>Conversational<br /> Interface:</p>
@@ -23,7 +22,7 @@ const SubFeatures = () => {
                             </div>
                             <div className="flex">
                                 <div className="pr-6">
-                                    <img src="/assets/calender-loading.png" height={"73.2px"} width={'73.2px'} alt="" />
+                                    <Image src="/assets/calender-loading.png" height={73.2} width={73.2} alt="" />
                                 </div>
                                 <div >
                                     <p className="" style={{ fontFamily: 'Avenir-Heavy', fontSize: '17px', marginTop: '-14px', lineHeight: '20px' }}>API Access For<br />  Developers::</p>
@@ -32,7 +31,7 @@ const SubFeatures = () => {
                             </div>
                             <div className="flex">
                                 <div className="pr-6">
-                                    <img src="/assets/calender.png" height={"73.2px"} width={'73.2px'} alt="" />
+                                    <Image src="/assets/calender.png" height={73.2} width={73.2} alt="" />
                                 </div>
                                 <div >
                                     <p className="" style={{ fontFamily: 'Avenir-Heavy', fontSize: '17px', marginTop: '-14px', lineHeight: '20px' }}>Comprehensive<br /> Documentation:</p>

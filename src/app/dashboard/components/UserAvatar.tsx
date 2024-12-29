@@ -1,9 +1,10 @@
 import { useSession } from "next-auth/react";
 import LogoutButton from "./LogoutButton";
 import { useState } from "react";
+import Image from "next/image";
 
 const UserAvatar = () => {
-    const { data: session, status } = useSession(); // TypeScript infers types from next-auth
+    const { data: session } = useSession(); // TypeScript infers types from next-auth
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
 
@@ -12,10 +13,10 @@ const UserAvatar = () => {
       setIsDropdownOpen((prev) => !prev);
     };
   
-    const handleLogout = () => {
-      console.log('Logout clicked');
-      // Add your logout logic here
-    };
+    // const handleLogout = () => {
+    //   console.log('Logout clicked');
+    //   // Add your logout logic here
+    // };
   
     const handleProfile = () => {
       console.log('Profile clicked');
@@ -30,7 +31,7 @@ const UserAvatar = () => {
         >
           <div className="flex justify-between items-center">
             <p className="text-gray-300 text-sm">Share</p>
-            <img src="/assets/share-icon.png" width="10px" alt="Share Icon" />
+            <Image src="/assets/share-icon.png" width={10} height={10} alt="Share Icon" />
           </div>
         </button>
   

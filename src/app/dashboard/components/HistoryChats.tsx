@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface HistoryChatsProps {
     chats: { title: string}[];
   }
@@ -18,10 +20,10 @@ interface HistoryChatsProps {
         </p>
         {chats.map((chat, index) => (
           <div key={index} className="flex ml-2 mt-4">
-            <img
+            <Image
               src={'/assets/message-logo.png'}
-              height="22px"
-              width="22px"
+              height={22}
+              width={22}
               alt={`${chat.title} icon`}
             />
             <p

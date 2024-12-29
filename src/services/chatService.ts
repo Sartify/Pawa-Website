@@ -1,11 +1,4 @@
-import axios from "axios";
-import { headers } from "next/headers";
-
-
-
-
-// services/chatService.ts
-  
+// services/chatService.ts  
   export interface ChatCompletionRequest {
     model: string;
     messages: Array<{

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { AuthLinkStyle } from "./HeaderSection"
+import Image from "next/image"
 
 
 const DocumentSection = () => {
@@ -65,7 +65,7 @@ const DocumentSection = () => {
                                 <div className="flex-col h-[386px] w-[298px] bg-[#EEF2F5]  p-10 " style={{borderRadius:'12px'}}>
                                         <p className="mb-6" style={{color:'#1B609F', fontFamily:'Avenir-Light', fontSize:'14px'}}>DECEMBER 6, 2024 | PDF</p>
                                         <div className="mb-6">
-                                            <img src="/assets/document.png" width={'62px'} height={'82px'} alt="" />
+                                            <Image src="/assets/document.png" width={62} height={82} alt="" />
                                         </div>
                                         <p className="mb-2" style={{color:'#1E325E', fontFamily:'Avenir-Black', fontSize:'20px'}}>Getting Started<br/> Guide</p>
                                        <p className="mb-6" style={{color:'#1E325E', fontFamily:'Avenir-Light', fontSize:'14px'}}>Step-by-step guide to get started.</p>
@@ -75,7 +75,7 @@ const DocumentSection = () => {
                                 <div className="flex-col h-[386px] w-[298px] bg-[#EEF2F5]  p-10 " style={{borderRadius:'12px', boxShadow:' 0px 3px 15px #00000029'}}>
                                         <p className="mb-6" style={{color:'#1B609F', fontFamily:'Avenir-Light', fontSize:'14px'}}>DECEMBER 6, 2024 | PDF</p>
                                         <div className="mb-6">
-                                            <img src="/assets/document.png" width={'62px'} height={'82px'} alt="" />
+                                            <Image src="/assets/document.png" width={62} height={82} alt="" />
                                         </div>
                                         <p className="mb-2" style={{color:'#1E325E', fontFamily:'Avenir-Black', fontSize:'20px'}}>Getting Started<br/> Guide</p>
                                        <p className="mb-6" style={{color:'#1E325E', fontFamily:'Avenir-Light', fontSize:'14px'}}>Step-by-step guide to get started.</p>

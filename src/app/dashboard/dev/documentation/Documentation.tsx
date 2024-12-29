@@ -3,6 +3,7 @@ import DevNavigation from "../components/DevNavigation"
 import InfoFooter from "../components/InfoFooter"
 import { ActionButton } from "../apiendpoint/ApiEndpoint"
 import { CSSProperties, ReactNode } from "react";
+import Image from "next/image";
 
 
 interface CardProps {
@@ -40,11 +41,11 @@ const DocumentCard: React.FC = () => {
               DECEMBER 6, 2024 | PDF
           </p>
           <div className="mb-6">
-              <img
+              <Image
                   className="grayscale"
                   src="/assets/document.png"
-                  width="62"
-                  height="82"
+                  width={62}
+                  height={82}
                   alt="Document"
               />
           </div>
@@ -105,7 +106,7 @@ const Documentation = () => {
         <div className="flex  w-full  p-8">
           <div className="flex w-full  " >
             <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-              <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
+              <Image src="/assets/left-arrow.png" height={18} width={18} alt="" />
             </button>
             <p style={{ color: '#FCFEFB', opacity: '0.8' }}>Back to Website </p>
           </div>

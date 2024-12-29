@@ -1,49 +1,46 @@
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import DashMenuBottom from "../components/DashMenuBottom";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import LogoutButton from "../components/LogoutButton";
 import AskInput from "../components/AskInput";
 import NewChatButton from "../components/NewChatButton";
 import UserAvatar from "../components/UserAvatar";
 import HistoryChats from "../components/HistoryChats";
-import ContentBox from "../components/ContentBox";
 import axios from "axios";
 
 
 
-const CenterStatic = () =>{
+// const CenterStatic = () =>{
 
-  return(
-    <>
-    <div className="flex justify-center items-center">
-        <div><img src="/assets/buddy.png" height={'130px'} width={'147'} alt="" /></div>
-    </div>
-    <div className="flex justify-center items-center my-10">
-        <p  style={{fontSize:'25px',fontFamily:'Chillax-Bold', color:'white'}}>How can I help you today?</p>
-    </div>
+//   return(
+//     <>
+//     <div className="flex justify-center items-center">
+//         <div><Image src="/assets/buddy.png" height={130} width={147} alt="" /></div>
+//     </div>
+//     <div className="flex justify-center items-center my-10">
+//         <p  style={{fontSize:'25px',fontFamily:'Chillax-Bold', color:'white'}}>How can I help you today?</p>
+//     </div>
 
-    {/* section */}
-            <ContentBox
-                title="Make a content strategy"
-                description="For a newsletter featuring local weekend events"
-            />
+//     {/* section */}
+//             <ContentBox
+//                 title="Make a content strategy"
+//                 description="For a newsletter featuring local weekend events"
+//             />
        
-            <ContentBox
-                title="Make a content strategy"
-                description="For a newsletter featuring local weekend events"
-            />
-            <ContentBox
-                title="Plan a social media campaign"
-                description="For promoting new product launches"
-            />
-    {/* section */}
-    </>
-  )
-}
+//             <ContentBox
+//                 title="Make a content strategy"
+//                 description="For a newsletter featuring local weekend events"
+//             />
+//             <ContentBox
+//                 title="Plan a social media campaign"
+//                 description="For promoting new product launches"
+//             />
+//     {/* section */}
+//     </>
+//   )
+// }
 
 
 
@@ -78,7 +75,7 @@ const Dashboard = () => {
   const router = useRouter();
   const [response, setResponse] = useState('');
   const [query, setQuery] = useState('');
-  const { data: session, status } = useSession();
+ 
   
   
   const goToPage = (path: string): void => {
@@ -92,7 +89,7 @@ const Dashboard = () => {
 
 
 
-     const fetchResults = async (e:any) =>{
+     const fetchResults = async (e: React.MouseEvent<HTMLButtonElement>) =>{
         setResponse(''); // reset before streaming
                 e.stopPropagation(); // Prevent button click from triggering the container click
                 //  const response = await chatCompletion()
@@ -149,7 +146,7 @@ const Dashboard = () => {
                   
                     <div className="flex w-full  " >
                             <Link href={'/'} className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 mb-28">
-                                <img src="/assets/left-arrow.png" height={'18px'} width={'18px'} alt="" />
+                                <Image src="/assets/left-arrow.png" height={18} width={18} alt="" />
                             </Link>
                             <p style={{ color: '#FCFEFB', opacity:'0.8' }}>Back to Website </p>
                         </div>
@@ -169,7 +166,7 @@ const Dashboard = () => {
           >
             <div className="flex justify-between items-center">
               <p style={{ color: "#2F2D2D", fontSize: "13px", fontFamily:'Avenir-Medium' }}>{'PAWA for Dev'}</p>
-              <img src={'/assets/code.png'} width="14px" alt="Button Icon" />
+              <Image src={'/assets/code.png'} width={14} height={14} alt="Button Icon" />
             </div>
           </button>
         </div>

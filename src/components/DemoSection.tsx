@@ -1,3 +1,4 @@
+import Image from "next/image"
 
 
 const DemoSection = () => {
@@ -14,7 +15,7 @@ const DemoSection = () => {
 
           <button className=" mb-10 p-4" style={{backgroundColor:'#DC8F0A', fontFamily:'Avenir-Heavy', fontSize:'16px', borderRadius:'5px', color:'2F333E'}}> REQUEST A DEMO</button>
           <div  className=" flex justify-center items-center">
-            <img src="/assets/sponsors.png" width={"900px"} height={'95px'} alt="" />
+            <Image src="/assets/sponsors.png" width={900} height={95} alt="" />
           </div>
 
         </div>

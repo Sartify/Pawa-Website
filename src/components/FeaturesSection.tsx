@@ -1,3 +1,4 @@
+import Image from "next/image"
 
 const FeaturesSection = () => {
   return (
@@ -60,7 +61,7 @@ const FeaturesSection = () => {
 
             </div>
             <div className=" z-10 flex-col w-full bg-white pt-10 ">
-                <img src="/assets/bee.png" alt="" />
+                <Image src="/assets/bee.png" width={600} height={500} alt="" />
             </div>
             {/* curved div */}
            

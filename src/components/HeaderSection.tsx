@@ -1,5 +1,6 @@
 "use client"
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -41,7 +42,7 @@ const ColumnLayout = () => {
         <div className=" relative flex w-[363px]  h-[250px] rounded-[26px] ml-10 mr-10 bg-[#4B525C] opacity-100 p-8">
 
             <div className="flex-col">
-                <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img>
+                <Image height={49} width={49} src={"/assets/calender-loading-faded.png"} alt={""} />
                 <div className="pb-6 pt-6">
                     <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px] mb-[-25px]">Conversational</p> <br />
                     <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]">Interface:</p>
@@ -62,7 +63,7 @@ const ColumnLayoutEdgesLeft = () => {
         <div className="absolute -left-10  flex w-[200px] h-[250px] rounded-[26px] bg-[#4B525C] opacity-100 p-8">
 
             <div className="flex-col">
-                {/* <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img> */}
+               
                 <div className="pb-6 pt-6">
                     <p style={{ fontFamily: "Chillax-Bold" }} className="text-white text-[20px]"></p> <br />
                     {/* <text style={{fontFamily:"Chillax-Bold"}} className="text-white text-[20px]">Interface:</text> */}
@@ -84,7 +85,7 @@ const ColumnLayoutEdgesRight = () => {
         <div className="absolute -right-10   flex w-[200px] h-[250px] rounded-[26px] bg-[#4B525C] opacity-100 p-8">
 
             <div className="flex-col">
-                <img height={49} width={49} src={"/assets/calender-loading-faded.png"}></img>
+                <Image height={49} width={49} src={"/assets/calender-loading-faded.png"} alt="" />
                 <div className="pb-6 pt-6">
                     <p style={{ fontFamily: "Chillax-Bold" }} className="text-white mb-[-25px] text-[20px]">API Access</p> <br />
                     {/* <text style={{fontFamily:"Chillax-Bold"}} className="text-white text-[20px]">Interface:</text> */}
@@ -111,18 +112,18 @@ const LinkStyle = {
 
 }
 
-const ActiveLinkStyle = {
-    display:'block',
-    fontFamily:'Avenir-Light',
-    fontSize:'17px',
-    color:'#FFA200',
-    padding:'4px 0px 4px 0px',
-    borderTop: '2px solid #FFA200',
-    borderBottom: '2px solid #FFA200',
-    marginLeft:'1em',
-    marginRight:'1em'
+// const ActiveLinkStyle = {
+//     display:'block',
+//     fontFamily:'Avenir-Light',
+//     fontSize:'17px',
+//     color:'#FFA200',
+//     padding:'4px 0px 4px 0px',
+//     borderTop: '2px solid #FFA200',
+//     borderBottom: '2px solid #FFA200',
+//     marginLeft:'1em',
+//     marginRight:'1em'
     
-}
+// }
 export const AuthLinkStyle = {
     display:'block',
     fontFamily:'Avenir-Light',
@@ -282,7 +283,7 @@ const HeaderSection = () => {
                                     <p className="text-white mr-4 text-[17px]">Try PAWA Now</p>
                                 </div>
                                 <div >
-                                    <div ><img height={27} width={27} src="/assets/arrow.png" alt="" /></div>
+                                    <div ><Image height={27} width={27} src="/assets/arrow.png" alt="" /></div>
                                 </div>
                             </div>
                             <div className="flex  flex-row mt-20">
@@ -290,7 +291,7 @@ const HeaderSection = () => {
                                     <p className="text-white mr-4 text-[17px]">Get Started</p>
                                 </div>
                                 <div >
-                                    <div ><img height={27} width={27} src="/assets/arrow.png" alt="" /></div>
+                                    <div ><Image height={27} width={27} src="/assets/arrow.png" alt="" /></div>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +307,7 @@ const HeaderSection = () => {
                     <div className="flex items-center justify-between  absolute z-100  w-full h-[140px] top-0 ">
 
                         <div>
-                            <img src="/assets/pawa-logo.png" height={"45px"} width={"45px"} alt="" />
+                            <Image src="/assets/pawa-logo.png" height={45} width={45} alt="" />
                         </div>
                         <div><Navlinks/></div>
                         <div><AuthLinks/></div>

@@ -1,7 +1,6 @@
 
 'use client'
 import Dashboard from './Dashboard';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { SessionProvider } from 'next-auth/react';
 
 

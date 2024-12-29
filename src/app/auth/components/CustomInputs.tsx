@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useRef } from 'react'
 
 
@@ -38,7 +39,7 @@ interface PasswordInputProps {
         }}
         onClick={handleDivClick} // Triggers input focus
       >
-        <img
+        <Image
           src="/assets/password-icon.png"
           height={22}
           width={22}
@@ -86,7 +87,7 @@ interface PasswordInputProps {
         }}
         onClick={handleDivClick} // Trigger input focus on div click
       >
-        <img
+        <Image
           src="/assets/email-icon.png"
           height={22}
           width={22}
@@ -134,7 +135,7 @@ interface PasswordInputProps {
         }}
         onClick={handleDivClick} // Trigger input focus on div click
       >
-        <img
+        <Image
           src="/assets/email-icon.png"
           height={22}
           width={22}
