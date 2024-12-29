@@ -4,7 +4,12 @@ import Image from "next/image";
 // import { IncomingMessage } from "node:http";
 import { useRef } from "react";
 
-const AskInput = ({fetchResults, setQuery}:any) => {
+interface AskInputProps {
+  fetchResults: (e: React.MouseEvent<HTMLButtonElement>) => void; // type for fetchResults
+  setQuery: React.Dispatch<React.SetStateAction<string>>; // type for setQuery
+}
+
+const AskInput: React.FC<AskInputProps> = ({fetchResults, setQuery}) => {
 
     const inputRef = useRef<HTMLInputElement>(null); // Create a ref for the input element
     const handleContainerClick = () => {
@@ -14,7 +19,7 @@ const AskInput = ({fetchResults, setQuery}:any) => {
       }
     };
 
-    const handleInputChange = (e:any) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setQuery(e.target.value); 
     };
     return (

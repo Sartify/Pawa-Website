@@ -224,7 +224,7 @@ const Navlinks = ()=>{
 }
 
 const AuthLinks = ()=>{
-    const { data: session, status } = useSession();
+    const { status } = useSession();
   
     return (
         <>

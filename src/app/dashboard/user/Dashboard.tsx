@@ -42,9 +42,14 @@ import axios from "axios";
 //   )
 // }
 
+interface ResultBoxProps {
+  resultContent: string; // Specify the type of resultContent
+}
 
 
-const ResultBox = ({resultContent}:any) =>{
+
+
+const ResultBox: React.FC<ResultBoxProps> = ({resultContent}) =>{
 
   return(
     <div

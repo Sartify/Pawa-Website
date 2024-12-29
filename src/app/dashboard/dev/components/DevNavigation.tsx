@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import DashMenuBottom from '../../components/DashMenuBottom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -29,79 +29,78 @@ import { usePathname } from 'next/navigation';
 
 
 
-    const DevMenu = () => {
-        
-
-        const pathname = usePathname(); 
-    
-     
-
-        const [activeLink, setActiveLink] = useState("");
 
 
-         // Track route changes and update the active link accordingly
-        useEffect(() => {
-            const matchingLink = links.find((link) => pathname === link.href);
-            if (matchingLink) {
-            setActiveLink(matchingLink.name);  // Set active link based on current route
-            }
-        }, );  // Re-run effect when the route changes
-    
-        const links = [
-        { name: "Homepage", href: "/dashboard/dev",icon:'devhomepage-active.svg' },
-        { name: "API Tokens", href: "/dashboard/dev/apitoken", icon:'api-token-active.svg' },
-        { name: "API Endpoint", href: "/dashboard/dev/apiendpoint",icon:'api-end-point-active.svg' },
-        { name: "Documentation", href: "/dashboard/dev/documentation", icon:'documentation-active.svg' },
-        ];
-    
-        return (
-        <div className="mt-10">
-            <p
+
+
+const DevMenu = () => {
+  const pathname = usePathname();
+
+  const [activeLink, setActiveLink] = useState("");
+
+  // Memoize the links array to avoid re-creation on every render
+  const links = useMemo(() => [
+    { name: "Homepage", href: "/dashboard/dev", icon: "devhomepage-active.svg" },
+    { name: "API Tokens", href: "/dashboard/dev/apitoken", icon: "api-token-active.svg" },
+    { name: "API Endpoint", href: "/dashboard/dev/apiendpoint", icon: "api-end-point-active.svg" },
+    { name: "Documentation", href: "/dashboard/dev/documentation", icon: "documentation-active.svg" },
+  ], []); // Empty dependency array ensures it's created only once
+
+  // Track route changes and update the active link accordingly
+  useEffect(() => {
+    const matchingLink = links.find((link) => pathname === link.href);
+    if (matchingLink) {
+      setActiveLink(matchingLink.name); // Set active link based on the current route
+    }
+  }, [links, pathname]); // Now links is stable and will not cause re-renders
+
+  return (
+    <div className="mt-10">
+      <p
+        style={{
+          color: "#FFFFFF",
+          fontFamily: "Avenir-Medium",
+          fontSize: "15px",
+          opacity: "0.7",
+        }}
+      >
+        Menu
+      </p>
+      {links.map((link) => (
+        <div
+          key={link.name}
+          className={`flex mt-4 ${
+            activeLink === link.name ? "bg-[#3F3E3D]" : "bg-transparent"
+          } p-2 rounded `}
+          onClick={() => setActiveLink(link.name)}
+        >
+          <Image
+            src={`/assets/${link.icon}`}
+            height={22}
+            width={22}
+            alt=""
+            className={`${activeLink === link.name ? "" : "grayscale"}`}
+          />
+          <Link
+            href={link.href}
+            className={`ml-3 ${
+              activeLink === link.name ? "font-bold color-[#FFA200] opacity-100" : ""
+            }`}
             style={{
-                color: "#FFFFFF",
-                fontFamily: "Avenir-Medium",
-                fontSize: "15px",
-                opacity: "0.7",
+              color: `${activeLink === link.name ? "#FFA200" : "#FFFFFF"}`,
+              fontFamily: "Avenir-Light",
+              fontSize: "15px",
+              opacity: activeLink === link.name ? "1" : "0.7",
             }}
-            >
-            Menu
-            </p>
-            {links.map((link) => (
-            <div
-                key={link.name}
-                className={`flex mt-4 ${
-                activeLink === link.name ? "bg-[#3F3E3D]" : "bg-transparent"
-                } p-2 rounded `}
-                onClick={() => setActiveLink(link.name)}
-            >
-            <Image 
-                    src={`/assets/${link.icon}`} 
-                    height={22} 
-                    width={22} 
-                    alt="" 
-                    className={`${activeLink === link.name ? "" : "grayscale" }`}
-                    />
-                <Link
-                href={link.href}
-                className={`ml-3 ${
-                    activeLink === link.name ? "font-bold  color-[#FFA200]  opacity-100" : ""
-                }`}
-                
-                style={{
-                    
-                    color: `${activeLink === link.name ? "#FFA200":"#FFFFFF" } `,
-                    fontFamily: "Avenir-Light",
-                    fontSize: "15px",
-                    opacity: activeLink === link.name ? "1" : "0.7",
-                }}
-                >
-                {link.name}
-                </Link>
-            </div>
-            ))}
+          >
+            {link.name}
+          </Link>
         </div>
-        );
-    };
+      ))}
+    </div>
+  );
+};
+
 
 function DevNavigation() {
   return (
