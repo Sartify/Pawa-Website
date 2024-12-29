@@ -3,8 +3,8 @@ import Image from "next/image"
 import DevNavigation from "../components/DevNavigation"
 import InfoFooter from "../components/InfoFooter"
 import { CustomButton } from "../apitoken/ApiToken"
-import SyntaxHighlighter from "react-syntax-highlighter"
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import SyntaxHighlighter from "react-syntax-highlighter"
+// import { dark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 // interface ContentDivProps {
@@ -201,9 +201,9 @@ const ApiEndPoint = () => {
                   </svg>
                             <button className=" flex flex-row text-[12px] text-[#7D7B7B] ">Copy code</button>
                       </div>
-                      <SyntaxHighlighter customStyle={{fontSize:'12px'}} language="javascript" style={dark}>
+                      {/* <SyntaxHighlighter customStyle={{fontSize:'12px'}} language="javascript" style={dark}> */}
                           {codeString} 
-                      </SyntaxHighlighter>
+                      {/* </SyntaxHighlighter> */}
                       
                   </div>
                   
